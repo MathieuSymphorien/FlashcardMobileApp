@@ -1,38 +1,24 @@
-import { View, StyleSheet, FlatList } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+// app/(tabs)/flashcards.tsx
+import React from "react";
+import { View, StyleSheet, FlatList, Text } from "react-native";
+import { getAllWords } from "@/data/categories";
 import Flashcard from "@/components/Flashcard";
 
-// Définissons la structure des données
-interface CardData {
-  id: string;
-  front: string; // mot en anglais
-  back: string; // traduction
-}
-
 export default function FlashcardsScreen() {
-  // Exemple de cartes
-  const cardsData: CardData[] = [
-    { id: "1", front: "apple", back: "pomme" },
-    { id: "2", front: "car", back: "voiture" },
-    { id: "3", front: "house", back: "maison" },
-    { id: "4", front: "cat", back: "chat" },
-  ];
+  // Récupère tous les mots de toutes les catégories
+  const allWords = getAllWords();
 
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title" style={styles.title}>
-        Mes Flashcards
-      </ThemedText>
-
+    <View style={styles.container}>
+      <Text style={styles.title}>Flashcards</Text>
       <FlatList
-        data={cardsData}
+        data={allWords}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Flashcard frontText={item.front} backText={item.back} />
+          <Flashcard frontText={item.english} backText={item.french} />
         )}
       />
-    </ThemedView>
+    </View>
   );
 }
 
@@ -42,6 +28,8 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    marginBottom: 16,
+    fontSize: 24,
+    marginBottom: 12,
+    fontWeight: "bold",
   },
 });

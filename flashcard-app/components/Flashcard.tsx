@@ -1,9 +1,10 @@
+// components/Flashcard.tsx
 import React, { useState } from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 
 interface FlashcardProps {
-  frontText: string; // mot en anglais
-  backText: string; // traduction
+  frontText: string;
+  backText: string;
 }
 
 export default function Flashcard({ frontText, backText }: FlashcardProps) {
