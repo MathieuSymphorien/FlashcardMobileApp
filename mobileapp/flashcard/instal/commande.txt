@@ -1,0 +1,4 @@
+npx eas build --platform android
+
+java -jar bundletool-all-1.14.0.jar build-apks --bundle=monappli.aab --output=monappli.apks --mode=universal --ks=monKeystore.jks --ks-key-alias=MonAlias --ks-pass=pass:password
+
