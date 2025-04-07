@@ -21,7 +21,7 @@ export default function Dashboard() {
     async function fetchData() {
       try {
         if (!getAuthToken()) {
-          await login("admin", "pGd'tb$EXh,]j]M'=&9Tuk/FqG?Y7ZB%4zo}ZZ67v?L");
+          await login("root", "root");
         }
         const response = await updateStreak(1); // ID utilisateur
         setUserStats(response);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // 1) Créez une instance axios
 const api = axios.create({
-  baseURL: "https://english.mathieu-symphorien.fr",
+  baseURL: "https://localhost:8080",
 });
 
 // 2) Variable pour stocker le token en mémoire
